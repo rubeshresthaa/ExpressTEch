@@ -4,6 +4,7 @@ import Serivce from "./Features/OurService/Serivce";
 import DashBoard from "./Features/Dashboard/DashBoard";
 import Contact from "./Features/Contact/Contact";
 import AboutPage from "./Features/About Us/AboutPage";
+import Login from "./Features/Auth/Login";
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
     {
       path:'about',
       element:<AboutPage />
+    },
+    {
+      path:'login',
+      element:<Login />
     }
   ]
   }])

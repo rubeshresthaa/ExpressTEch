@@ -13,7 +13,7 @@ const Header = () => {
    const content= <>
      <div className="hidden md:block lg:block absolute top-16 w-full left-0 right-0 bg-black ">
           <ul className="text-center text-xl p-10 space-y-4">
-            <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">Home</li>
+           <Link to='/'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">Home</li></Link> 
             <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">About Us</li>
             <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">Services</li>
             <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">Contact</li>
@@ -50,7 +50,7 @@ const Header = () => {
         </button>
         <div>
           <ul className="flex font-bold md:flex-col md:items-start items-center gap-5 md:gap-y-4 cursor-pointer w-full lg:hidden">
-            <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">Home</li>
+           <Link to='/'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">Home</li></Link>
             <Link to='/about'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">About Us</li></Link>
             <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">Services</li>
             <Link to='/contact'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">Contact</li></Link>

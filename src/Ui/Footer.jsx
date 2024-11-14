@@ -8,15 +8,16 @@ const Footer = () => {
       distance: '400px',
       duration: 1000,
       easing: 'ease-out',
-      reset: true,
+      
     });
   }, []);
   return (
     // <div className="text-[#212121] bg-[#006400]">
     <div
-    className="bg-cover w-full  bg-center h-[20rem] object-fill text-gray-300 bg-transparent"
-    style={{ backgroundImage: `url(${footImage})`}}>
-      <main className="grid grid-cols-4 justify-center lg:grid-cols-3 md:grid-cols-2 px-20 gap-8 py-10 animate-side">
+    className="bg-cover w-full bg-center h-[20rem] sm:h-[25rem] md:h-[30rem] lg:h-[35rem] xl:h-[40rem] object-fill text-gray-300 bg-transparent"
+    style={{ backgroundImage: `url(${footImage})` }}>
+
+      <main className="grid grid-cols-4 justify-center lg:grid-cols-3 md:grid-cols-1 px-20 gap-8 py-10 animate-side">
         <div className='space-y-2'>
           <h1 className="text-center font-medium text-2xl">Express Tech</h1>
           <p className="text-gray-300 text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste suscipit sapiente maxime molestias iusto minus dolorem harum sed, a illum id mollitia accusamus cupiditate architecto consequatur numquam quae, ipsam fuga?</p>
