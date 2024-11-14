@@ -1,11 +1,18 @@
-const Card = () => {
+import { useNavigate} from "react-router-dom";
+import { imageUrl } from "../../constants/api_url";
+
+const Card = ({service:{_id,title,image,description}}) => {
+ 
+const nav=useNavigate();
+
+  
   return (
     <div className="max-w-xs bg-[#202124] overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out">
       {/* Image Section */}
-      <div className="relative">
+      <div className="relative" onClick={()=>nav(`/service-detail/${_id}`)}>
         <img
-          className="w-full h-48 object-fill border-none"
-          src="https://via.placeholder.com/400x300" //
+          className="w-full h-48 object-fill border-none bg-transparent"
+          src={`${imageUrl}${image}`} //
           alt="Card Image"
         />
         
@@ -13,9 +20,9 @@ const Card = () => {
 
       {/* Content Section */}
       <div className="p-4">
-        <h2 className="text-lg font-bold text-[#FFFFFF] mb-2 text-center">Card Title</h2>
+        <h2 className="text-lg font-bold text-[#FFFFFF] mb-2 text-center">{title}</h2>
         <p className="text-gray-300 text-sm mb-4 text-justify">
-          This is a brief description of the card content. It should be concise and give the reader a quick summary.
+          {description}
         </p>
         
       </div>

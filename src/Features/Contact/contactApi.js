@@ -24,7 +24,10 @@ export const contactApi=createApi({
     deleteContact:builder.mutation({
       query:(q)=>({
         url:`/${q.id}`,
-        method:'DELETE'  
+        method:'DELETE',
+        headers:{
+          Authorization:`Bearer ${q.token}`
+        }  
       }),
       invalidatesTags:['Contact']
     })
