@@ -23,9 +23,9 @@ export const serviceApi=createApi({
     addService:builder.mutation({
       query:(q)=>({
         url:'/add-service',
-        body:q,
+        body:q.body,
         headers:{
-          Authorization:`Bearer ${q.token}`
+          Authorization:q.token
         },
         method:'POST'
       }),

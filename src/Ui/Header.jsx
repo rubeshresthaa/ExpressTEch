@@ -3,63 +3,143 @@ import { IoMenuSharp } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-
 const Header = () => {
-  const [open,setOpen]=useState(false)
+  const [open, setOpen] = useState(false);
 
-  const toggleButton=()=>{
-    setOpen((prev)=>!prev)
-  }
-   const content= <>
-     <div className="hidden md:block lg:block absolute top-16 w-full left-0 right-0 bg-black ">
-          <ul className="text-center text-xl p-10 space-y-4">
-           <Link to='/'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">Home</li></Link> 
-            <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">About Us</li>
-            <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">Services</li>
-            <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase">Contact</li>
-          </ul>
-        </div>
-   </>
+  const toggleButton = () => {
+    setOpen((prev) => !prev);
+  };
 
+  const mobileMenu = (
+    <div
+      className={`fixed inset-0 bg-black bg-opacity-90 text-white flex flex-col justify-center items-center p-6 z-50 transition-all transform duration-300 ease-in-out ${
+        open ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-90"
+      }`}
+    >
+      {/* Close Button */}
+      <button
+        className="absolute top-4 right-4 text-white p-3 rounded-full bg-green-600 hover:bg-green-500 focus:outline-none transition-all transform duration-300 ease-in-out"
+        onClick={() => setOpen(false)}
+        aria-label="Close Menu"
+      >
+        <IoClose size={30} />
+      </button>
+  
+      <ul className="text-center text-2xl space-y-6">
+        <li>
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-3"
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/about"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-3"
+          >
+            About Us
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/service"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-3"
+          >
+            Services
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-3"
+          >
+            Contact
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
   return (
     <div>
-      <div className="flex justify-between bg-[#006400] p-4">
-        <div className="flex space-x-5 px-10 font-bold">
-          <h1>Address</h1>
-          <h1>Email</h1>
+      {/* Top Section */}
+      <div className="flex justify-between bg-green-800 p-4 text-white">
+        <div className="flex space-x-8">
+          <h1>Address: 1234 Street Name</h1>
+          <h1>Email: info@example.com</h1>
         </div>
-        <div className="flex justify-evenly px-10 font-bold">
-          <h1>Phone No.</h1>
-          <h1>facebook</h1>
-          <h1>instagram</h1>
+        <div className="flex space-x-6">
+          <h1>Phone: +1234567890</h1>
+          <h1>Facebook</h1>
+          <h1>Instagram</h1>
         </div>
       </div>
-   <div className="bg-[#212121] text-white p-4 md:m-0 w-full ">
-      <nav className="h-10vh flex md:flex-col lg:flex-col justify-between z-50 text-white lg:py-5 px-20 py-4 md:px-0 md:gap-y-4 ">
-        <div className="flex space-x-5 uppercase font-bold">
-          <h1>Logo Section Here</h1>
-          <h1>Express Tech</h1>
-        </div>
-        
-        <div>
-          {open && content}
-        </div>
-        <button className="hidden md:block lg:block absolute right-10" onClick={toggleButton}>
-        { open ? <IoClose size={30} /> :  <IoMenuSharp size={30} />}
 
-        </button>
-        <div>
-          <ul className="flex font-bold md:flex-col md:items-start items-center gap-5 md:gap-y-4 cursor-pointer w-full lg:hidden">
-           <Link to='/'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">Home</li></Link>
-            <Link to='/about'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">About Us</li></Link>
-            <li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">Services</li>
-            <Link to='/contact'><li className="hover:scale-125 hover:underline hover:underline-offset-8 uppercase transition-all">Contact</li></Link>
+      {/* Main Navigation */}
+      <div className="bg-black text-white p-4 md:p-6 relative">
+        <nav className="flex justify-between items-center relative z-50">
+          {/* Logo */}
+          <div className="flex space-x-4 items-center">
+            <h1 className="font-bold text-2xl text-green-500">Express Tech</h1>
+          </div>
+
+          {/* Menu toggle for mobile */}
+          <button
+            className="md:hidden z-50"
+            onClick={toggleButton}
+            aria-expanded={open}
+            aria-label="Toggle Menu"
+          >
+            {open ? <IoClose size={30} /> : <IoMenuSharp size={30} />}
+          </button>
+
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex gap-8 text-lg font-semibold uppercase">
+            <li>
+              <Link
+                to="/"
+                className="hover:scale-110 hover:underline hover:underline-offset-8 transition-all"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:scale-110 hover:underline hover:underline-offset-8 transition-all"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/service"
+                className="hover:scale-110 hover:underline hover:underline-offset-8 transition-all"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:scale-110 hover:underline hover:underline-offset-8 transition-all"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
-        </div>
-      </nav>
+
+          {/* Mobile Menu */}
+          {open && mobileMenu}
+        </nav>
+      </div>
     </div>
-    </div>
- 
-  )
-}
-export default Header
+  );
+};
+
+export default Header;

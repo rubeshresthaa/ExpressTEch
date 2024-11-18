@@ -6,7 +6,10 @@ import Contact from "./Features/Contact/Contact";
 import AboutPage from "./Features/About Us/AboutPage";
 import Login from "./Features/Auth/Login";
 import ServicePage from "./Features/OurService/ServicePage";
-import AdminDashBoard from "./Admin/AdminDashBoard";
+import AdminDashBoard from "./Admin/AdminDash/AdminDashBoard";
+import AddService from "./Admin/AddService/AddService";
+import ServiceAdmin from "./Admin/AdminDash/ServiceAdmin";
+import ContactAdmin from "./Admin/AdminDash/ContactAdmin";
 
 
 
@@ -42,7 +45,20 @@ function App() {
     {
       path:'admin-dashboard',
       element:<AdminDashBoard />
+    },
+    {
+      path:'add-servicepage',
+      element:<AddService />
+    },
+    {
+      path:'service-admin',
+      element:<ServiceAdmin />
+    },
+    {
+      path:'contact-admin',
+      element:<ContactAdmin />
     }
+
   ]
   }])
   return (

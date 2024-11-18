@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import image1 from '../../assets/Images/dashimage.jpg'
+import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
+import image1 from "../../assets/Images/dashimage.jpg";
 
-const smallCustomerImages = [
-  `${image1}`,`${image1}`
-];
+const smallCustomerImages = [image1, image1];
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,26 +20,28 @@ const Carousel = () => {
   return (
     <div className="relative w-full max-w-4xl mx-auto mt-8">
       {/* Carousel Image */}
-      <div className="overflow-hidden rounded-lg">
+      <div className="overflow-hidden rounded-lg shadow-lg">
         <img
           src={smallCustomerImages[currentIndex]}
           alt={`Customer ${currentIndex + 1}`}
-          className="w-full h-40 object-cover"
+          className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover transition-transform duration-500"
         />
       </div>
 
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 focus:outline-none"
+        aria-label="Previous slide"
+        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-black/70 text-white p-2 md:p-3 rounded-full hover:bg-teal-500 hover:scale-110 transition-all focus:outline-none shadow-lg"
       >
-        &#8592;
+        <IoArrowBackCircle size={28} className="md:text-3xl" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 focus:outline-none"
+        aria-label="Next slide"
+        className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-black/70 text-white p-2 md:p-3 rounded-full hover:bg-teal-500 hover:scale-110 transition-all focus:outline-none shadow-lg"
       >
-        &#8594;
+        <IoArrowForwardCircle size={28} className="md:text-3xl" />
       </button>
 
       {/* Pagination Dots */}
@@ -49,8 +50,10 @@ const Carousel = () => {
           <div
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2.5 h-2.5 mx-1 rounded-full cursor-pointer ${
-              index === currentIndex ? "bg-teal-500" : "bg-gray-400"
+            className={`w-4 h-4 mx-1 md:mx-2 rounded-full cursor-pointer transition-transform duration-300 ${
+              index === currentIndex
+                ? "bg-teal-500 scale-150 shadow-md"
+                : "bg-gray-400 hover:bg-gray-600"
             }`}
           ></div>
         ))}

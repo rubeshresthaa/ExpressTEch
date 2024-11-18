@@ -5,6 +5,8 @@ import { useLoginUserMutation } from "./userApi";
 import { useDispatch } from "react-redux";
 import { addUser } from "./userSlice";
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa'; 
 
 export const loginSchema = Yup.object({
   email: Yup.string().email().required("Email is required"),
@@ -14,6 +16,7 @@ export const loginSchema = Yup.object({
 const Login = () => {
   const [loginUser, { isLoading }] = useLoginUserMutation();
   const dispatch = useDispatch();
+  const nav=useNavigate();
 
   const { handleChange, handleSubmit, values, errors, touched } = useFormik({
     initialValues: {
@@ -28,6 +31,7 @@ const Login = () => {
         dispatch(addUser(response));
         toast.success(`Welcome To Admin Dashboard`);
         resetForm();
+        nav('/admin-dashboard')
       } catch (err) {
         toast.error("Login failed. Please try again.");
       }
@@ -36,7 +40,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900 px-4">
-      <div className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-md">
+      <div className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-md mb-28">
         <h2 className="text-3xl font-bold text-center text-green-500">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -79,6 +83,15 @@ const Login = () => {
             {isLoading ? "Logging in..." : "Login"}
           </button>
         </form>
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => nav('/')}
+            className="flex items-center bg-blue-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200 ease-in-out transform hover:scale-105"
+          >
+            <FaHome className="mr-2 text-xl" />
+            Back to Home
+          </button>
+        </div>
       </div>
     </div>
   );
