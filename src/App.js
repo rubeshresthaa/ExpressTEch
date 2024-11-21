@@ -10,6 +10,7 @@ import AdminDashBoard from "./Admin/AdminDash/AdminDashBoard";
 import AddService from "./Admin/AddService/AddService";
 import ServiceAdmin from "./Admin/AdminDash/ServiceAdmin";
 import ContactAdmin from "./Admin/AdminDash/ContactAdmin";
+import AdminRoute from "./Ui/AdminRoute";
 
 
 
@@ -43,21 +44,27 @@ function App() {
       element:<ServicePage />
     },
     {
-      path:'admin-dashboard',
-      element:<AdminDashBoard />
+      element:<AdminRoute />,
+      children:[
+        {
+          path:'admin-dashboard',
+          element:<AdminDashBoard />
+        },
+        {
+          path:'add-servicepage',
+          element:<AddService />
+        },
+        {
+          path:'service-admin',
+          element:<ServiceAdmin />
+        },
+        {
+          path:'contact-admin',
+          element:<ContactAdmin />
+        }
+      ]
     },
-    {
-      path:'add-servicepage',
-      element:<AddService />
-    },
-    {
-      path:'service-admin',
-      element:<ServiceAdmin />
-    },
-    {
-      path:'contact-admin',
-      element:<ContactAdmin />
-    }
+   
 
   ]
   }])
