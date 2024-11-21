@@ -18,7 +18,7 @@ const Service = () => {
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-2">
         {data && data.slice(0, 4).map((service) => (
-          <Card key={service.id} service={service} />
+          <Card key={service._id} service={service} />
         ))}
       </div>
     </div>

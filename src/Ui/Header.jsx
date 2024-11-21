@@ -131,6 +131,14 @@ const Header = () => {
               >
                 Contact
               </Link>
+              </li>
+              <li>
+              <Link
+                to="/info"
+                className="hover:scale-110 hover:underline hover:underline-offset-8 transition-all"
+              >
+                FAQs
+              </Link>
             </li>
           </ul>
 

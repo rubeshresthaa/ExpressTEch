@@ -11,8 +11,7 @@ import AddService from "./Admin/AddService/AddService";
 import ServiceAdmin from "./Admin/AdminDash/ServiceAdmin";
 import ContactAdmin from "./Admin/AdminDash/ContactAdmin";
 import AdminRoute from "./Ui/AdminRoute";
-
-
+import FAQ from "./Features/FAQ/FAQ";
 
 function App() {
   const router=createBrowserRouter([{
@@ -34,6 +33,10 @@ function App() {
     {
       path:'about',
       element:<AboutPage />
+    },
+    {
+      path:'info',
+      element:<FAQ />
     },
     {
       path:'login',
@@ -64,8 +67,6 @@ function App() {
         }
       ]
     },
-   
-
   ]
   }])
   return (

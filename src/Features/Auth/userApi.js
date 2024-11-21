@@ -4,6 +4,7 @@ import { baseUrl } from "../../constants/api_url";
 export const userApi=createApi({
   reducerPath:'userApi',
   baseQuery:fetchBaseQuery({baseUrl:`${baseUrl}/users`}),
+
   tagTypes:['User'],
   endpoints:(builder)=>({
     loginUser:builder.mutation({
@@ -32,5 +33,6 @@ export const userApi=createApi({
 
   })
 })
+
 
 export const {useLoginUserMutation,useRegisterUserMutation,useUserLogOutMutation}=userApi;

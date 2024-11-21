@@ -9,9 +9,7 @@ const DashBoard = () => {
     <div>
       <Main />
       <Serivce />
-      <hr />
       <About />
-      <hr className="text-black" />
       <Customers />
      
     </div>
