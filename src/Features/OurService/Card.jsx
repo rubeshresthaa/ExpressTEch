@@ -1,9 +1,11 @@
 import React from "react";
 import { imageUrl } from "../../constants/api_url";
+import { useNavigate } from "react-router-dom";
 
 const Card = React.memo(({ service: { _id, title, image, description } }) => {
+  const nav=useNavigate()
   return (
-    <div className="max-w-xs bg-[#1E1E1E] overflow-hidden hover:shadow-2xl transition-shadow duration-300 ease-in-out h-[400px] w-full flex flex-col justify-between rounded-lg border border-[#333] hover:scale-105">
+    <div className="max-w-xs bg-[#1E1E1E] overflow-hidden hover:shadow-2xl transition-shadow duration-300 ease-in-out h-[400px] w-full flex flex-col justify-between rounded-lg border border-[#333] hover:scale-105" onClick={()=>nav(`/service-detail/${_id}`)}>
       {/* Image Section */}
       <div className="relative flex-grow">
         <img

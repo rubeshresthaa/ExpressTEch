@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import { useGetServiceQuery } from "./serviceApi";
 
 const Service = () => {
   const { data } = useGetServiceQuery();
+  const nav=useNavigate();
 
   return (
     <div className="mb-28 px-4 md:px-20">
