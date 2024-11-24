@@ -4,7 +4,6 @@ import { baseUrl } from "../../constants/api_url";
 export const serviceApi=createApi({
   reducerPath:'serviceApi',
   baseQuery:fetchBaseQuery({baseUrl:`${baseUrl}/services`}),
-  credentials: 'include',
   tagTypes:['Service'],
   endpoints:(builder)=>({
     getService:builder.query({
