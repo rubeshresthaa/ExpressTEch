@@ -4,6 +4,7 @@ import { baseUrl } from "../../constants/api_url";
 export const contactApi=createApi({
   reducerPath:'contactApi',
   baseQuery:fetchBaseQuery({baseUrl:`${baseUrl}/contacts`}),
+  credentials: 'include',
   tagTypes:['Contact'],
   endpoints:(builder)=>({
     submitContact:builder.mutation({

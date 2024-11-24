@@ -4,6 +4,7 @@ import { baseUrl } from "../../constants/api_url";
 export const serviceApi=createApi({
   reducerPath:'serviceApi',
   baseQuery:fetchBaseQuery({baseUrl:`${baseUrl}/services`}),
+  credentials: 'include',
   tagTypes:['Service'],
   endpoints:(builder)=>({
     getService:builder.query({
@@ -18,7 +19,8 @@ export const serviceApi=createApi({
         url: `/${id}`,  // Using the dynamic ID
         method: 'GET',  // GET request
       }),
-      providesTags: ['Service'], // This can be used to invalidate the data when needed
+      providesTags: ['Service'], 
+      // This can be used to invalidate the data when needed
     }),
     addService:builder.mutation({
       query:(q)=>({
