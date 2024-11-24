@@ -151,6 +151,8 @@
 // };
 
 // export default Header;
+
+
 import { useState } from "react";
 import { IoMenuSharp } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
@@ -178,18 +180,53 @@ const Header = () => {
         <IoClose size={30} />
       </button>
 
-      <ul className="text-center text-2xl space-y-6">
-        {["Home", "About Us", "Services", "Contact", "FAQs"].map((item, idx) => (
-          <li key={idx}>
-            <Link
-              to={`/${item.toLowerCase().replace(/\s+/g, "")}`}
-              onClick={() => setOpen(false)}
-              className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-3"
-            >
-              {item}
-            </Link>
-          </li>
-        ))}
+      {/* Mobile Navigation Links */}
+      <ul className="text-center text-xl space-y-6">
+        <li>
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-2"
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/about"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-2"
+          >
+            About
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/services"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-2"
+          >
+            Services
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-2"
+          >
+            Contact
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/faqs"
+            onClick={() => setOpen(false)}
+            className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-2"
+          >
+            FAQs
+          </Link>
+        </li>
       </ul>
     </div>
   );
@@ -229,16 +266,46 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex gap-8 text-lg font-semibold uppercase">
-            {["Home", "About Us", "Services", "Contact", "FAQs"].map((item, idx) => (
-              <li key={idx}>
-                <Link
-                  to={`/${item.toLowerCase().replace(/\s+/g, "")}`}
-                  className="hover:scale-110 hover:underline hover:underline-offset-8 transition-all"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link
+                to="/"
+                className="hover:scale-105 hover:text-green-300 transition-all duration-300"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:scale-105 hover:text-green-300 transition-all duration-300"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services"
+                className="hover:scale-105 hover:text-green-300 transition-all duration-300"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:scale-105 hover:text-green-300 transition-all duration-300"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/faqs"
+                className="hover:scale-105 hover:text-green-300 transition-all duration-300"
+              >
+                FAQs
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Menu */}
@@ -250,4 +317,5 @@ const Header = () => {
 };
 
 export default Header;
+
 
