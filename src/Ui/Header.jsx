@@ -202,7 +202,7 @@ const Header = () => {
         </li>
         <li>
           <Link
-            to="/services"
+            to="/service"
             onClick={() => setOpen(false)}
             className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-2"
           >
@@ -220,7 +220,7 @@ const Header = () => {
         </li>
         <li>
           <Link
-            to="/faqs"
+            to="/info"
             onClick={() => setOpen(false)}
             className="text-green-500 hover:text-green-300 hover:scale-105 hover:translate-x-2 hover:underline hover:underline-offset-8 uppercase transition-all duration-300 py-2"
           >
@@ -284,7 +284,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/services"
+                to="/service"
                 className="hover:scale-105 hover:text-green-300 transition-all duration-300"
               >
                 Services
@@ -300,7 +300,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/faqs"
+                to="/info"
                 className="hover:scale-105 hover:text-green-300 transition-all duration-300"
               >
                 FAQs
