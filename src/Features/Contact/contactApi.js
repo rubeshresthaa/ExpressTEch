@@ -26,7 +26,9 @@ export const contactApi=createApi({
         url:`/${q.id}`,
         method:'DELETE',
         headers:{
+          'Content-Type': 'application/json',
           Authorization:`Bearer ${q.token}`
+          
         }  
       }),
       invalidatesTags:['Contact']

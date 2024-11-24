@@ -26,6 +26,7 @@ export const serviceApi=createApi({
         url:'/add-service',
         body:q.body,
         headers:{
+          'Content-Type': 'application/json',
           Authorization:q.token
         },
         method:'POST'
