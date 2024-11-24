@@ -15,18 +15,17 @@ export const serviceApi=createApi({
     }),
     getServiceByID: builder.query({
       query: (id) => ({
-        url: `/${id}`,  // Using the dynamic ID
-        method: 'GET',  // GET request
+        url: `/${id}`,
+        method: 'GET', 
       }),
       providesTags: ['Service'], 
-      // This can be used to invalidate the data when needed
+    
     }),
     addService:builder.mutation({
       query:(q)=>({
         url:'/add-service',
         body:q.body,
         headers:{
-          'Content-Type': 'application/json',
           Authorization:q.token
         },
         method:'POST'
