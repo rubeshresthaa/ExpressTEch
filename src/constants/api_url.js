@@ -7,4 +7,4 @@
 
 //Vercel:
 export const baseUrl='https://express-tech-back.vercel.app/api';
-export const imageUrl='https://express-tech-back.vercel.app/'; 
+export const imageUrl='https://express-tech-back.vercel.app'; 
